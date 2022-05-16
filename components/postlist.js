@@ -40,4 +40,20 @@ const styles = StyleSheet.create({
     marginTop: 100,
     padding: 20,
   },
+  title: {
+    fontWeight: "bold",
+    marginBottom: 15,
+    fontSize: 30,
+    alignSelf: "center",
+  },
+  item: {
+    width: "100%",
+    backgroundColor: "black",
+    marginTop: 30,
+    fontSize: 12,
+    alignItems: "center",
+    borderRadius: 50,
+    paddingVertical: 30,
+    paddingLeft: 15,
+  },
 });

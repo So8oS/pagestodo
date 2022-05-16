@@ -29,4 +29,25 @@ const styles = StyleSheet.create({
     marginTop: 10,
     padding: 20,
   },
+  title: {
+    color: "black",
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 15,
+    alignSelf: "center",
+    textAlign: "center",
+  },
+  box: {
+    width: "100%",
+    borderRadius: 8,
+    fontSize: 12,
+    padding: 20,
+    backgroundColor: "rgba(30, 31, 32, 0.25)",
+    marginTop: 30,
+  },
+  desc: {
+    lineHeight: 30,
+    color: "#FFF",
+    fontSize: 16,
+  },
 });

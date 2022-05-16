@@ -15,6 +15,7 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   const [userList, setUserList] = useState([]);
   const [posts, setPosts] = useState();
+
   // useEffect(() => {
   //   fetch("https://jsonplaceholder.typicode.com/users")
   //     .then((response) => response.json())
@@ -46,7 +47,6 @@ export default function App() {
       </Tab.Navigator>
     );
   };
-
   return (
     <NavigationContainer>
       <Stack.Navigator>

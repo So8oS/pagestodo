@@ -10,7 +10,6 @@ const UserDetail = ({ users, navigation }) => {
   }, [navigation]);
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{users.name}</Text>
       <View style={styles.inside}>
         <Text style={styles.title}>Name:</Text>
         <Text style={styles.info}>{users.name}</Text>
@@ -38,9 +37,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
     padding: 20,
   },
+  head: {},
 
   inside: {
-    width: "95%",
+    width: "100%",
     fontSize: 12,
     paddingVertical: 10,
     padding: 20,

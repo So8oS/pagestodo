@@ -7,9 +7,10 @@ const UserList = ({ users, navigation }) => {
     <Button
       title={item.name}
       buttonStyle={{
+        backgroundColor: "black",
         width: "100%",
-        justifyContent: "flex-start",
-        backgroundColor: "Black",
+        alignItems: "center",
+        justifyContent: "center",
       }}
       containerStyle={styles.item}
       onPress={() => navigation.navigate(`${item.id}${item.name.replace(/ /g, "/")}`)}
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: "black",
     marginTop: 30,
-    fontSize: 12,
+    fontSize: 18,
     alignItems: "center",
     borderRadius: 50,
     paddingVertical: 30,
