@@ -5,15 +5,16 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import axios from "axios";
-import UserList from "./userlist";
-import UserDetail from "./userdetail";
+import UserList from "./components/userlist";
+import UserDetail from "./components/userdetail";
+import PostsList from "./components/postlist.js";
+import PostDetail from "./components/postdetail.js";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function App() {
   const [userList, setUserList] = useState([]);
-  const [UserPost, setUserPost] = useState([]);
-
+  const [posts, setPosts] = useState();
   // useEffect(() => {
   //   fetch("https://jsonplaceholder.typicode.com/users")
   //     .then((response) => response.json())
@@ -25,13 +26,13 @@ export default function App() {
 
   useEffect(() => {
     axios.get("https://jsonplaceholder.typicode.com/users").then((response) => setUserList(response.data));
-    axios.get("https://jsonplaceholder.typicode.com/posts").then((response) => setUserPost(response.data));
+    axios.get("https://jsonplaceholder.typicode.com/posts").then((response) => setPosts(response.data));
   }, []);
 
   const BottomPanel = () => {
     return (
       <Tab.Navigator
-        screenOptions={({ route }) => ({
+        screenOptions={() => ({
           tabBarActiveTintColor: "#3D1273",
           tabBarInactiveTintColor: "gray",
         })}
@@ -39,9 +40,8 @@ export default function App() {
         <Tab.Screen name="Users" options={{ headerShown: false }}>
           {(props) => <UserList {...props} users={userList} />}
         </Tab.Screen>
-
         <Tab.Screen name="Posts" options={{ headerShown: false }}>
-          {(props) => <PostList {...props} users={posts} />}
+          {(props) => <PostsList {...props} data={posts} />}
         </Tab.Screen>
       </Tab.Navigator>
     );
@@ -59,14 +59,13 @@ export default function App() {
             </Stack.Screen>
           );
         })}
-
-        {/* {UserPost.map((post) => {
+        {posts?.map((post) => {
           return (
-            <Stack.Screen key={post.id} name={`${post.id}${post.title.replace(/ /g, "/")`}>
-              {(props) => <PostDetail {...props} users={post} />}
+            <Stack.Screen key={post.id} name={`${post.id}${post.title.replace(/ /g, "-").split(0, 24)[0]}`}>
+              {(props) => <PostDetail {...props} data={post} />}
             </Stack.Screen>
           );
-        })} */}
+        })}
       </Stack.Navigator>
     </NavigationContainer>
   );
