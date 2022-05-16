@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View, FlatList, Text } from "react-native";
 import { Button } from "react-native-elements";
 
-const UserList = ({ users }) => {
+const UserList = ({ users, navigation }) => {
   const renderItem = ({ item }) => (
     <Button
       title={item.name}
@@ -12,6 +12,7 @@ const UserList = ({ users }) => {
         backgroundColor: "Black",
       }}
       containerStyle={styles.item}
+      onPress={() => navigation.navigate(`${item.id}${item.name.replace(/ /g, "/")}`)}
     />
   );
   return (
@@ -44,5 +45,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 50,
     paddingVertical: 30,
+    paddingLeft: 15,
   },
 });
