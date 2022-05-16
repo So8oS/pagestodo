@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
-import { Text, View, StyleSheet, Platform, SafeAreaView, StatusBar } from "react-native";
+import { Text, View, StyleSheet, Platform, StatusBar, SafeAreaView } from "react-native";
+
 import UserList from "./userlist";
 
 export default function App() {
@@ -17,7 +18,6 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Pages To do</Text>
       <UserList users={userList} />
     </SafeAreaView>
   );
@@ -26,10 +26,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "red",
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
 });
