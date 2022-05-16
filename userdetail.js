@@ -1,6 +1,5 @@
 import React, { useLayoutEffect } from "react";
 import { StyleSheet, View, Text } from "react-native";
-import { Button } from "react-native-elements";
 
 const UserDetail = ({ users, navigation }) => {
   useLayoutEffect(() => {
@@ -49,14 +48,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginTop: 30,
     justifyContent: "flex-start",
-  },
-  main: {
-    alignSelf: "baseline",
-    color: "#FFF",
-    fontSize: 16,
-    fontWeight: "600",
-    marginTop: 10,
-    marginBottom: 10,
   },
   info: {
     color: "#FFF",
