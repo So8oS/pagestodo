@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import React, { useLayoutEffect } from "react";
-import { Text, Divider } from "react-native-elements";
+import { Text, Button } from "react-native-elements";
 
 const PostDetail = ({ navigation, data }) => {
   useLayoutEffect(() => {
@@ -16,6 +16,12 @@ const PostDetail = ({ navigation, data }) => {
       <View style={styles.box}>
         <Text style={styles.desc}>{data.body}</Text>
       </View>
+      <Button
+        title="View Comments"
+        onPress={() => {
+          navigation.navigate("Comments", { id: data.id });
+        }}
+      />
     </View>
   );
 };
